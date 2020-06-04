@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>西南石油大学邮件登陆系统</title>
+    <script type="text/javascript" src="Servlet/Cookie.js">
+
+    </script>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .top{
+            width: 100%;
+            height: 80px;
+            background-color: #f5f5f5;
+        }
+        .logo{
+            float: left;
+            margin:20px 200px;
+        }
+        .help{
+            float: right;
+            margin: 35px 195px;
+            color: #787878;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .help:hover{
+            text-decoration: underline;
+        }
+
+        .content{
+            width: 964px;
+            height: 460px;
+            margin:20px auto 0 ;
+            background: url("img/login_bg_03.jpg");
+        }
+        .form{
+            position: absolute;
+            margin: 70px 564px;
+            width: 360px;
+            height: 340px;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+        .title {
+            height: 40px;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+            background-color: #E0862B;
+            border-radius: 3px;
+        }
+
+        .login {
+            width: 285px;
+            height: 260px;
+            margin: 25px auto;
+        }
+        .login_title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            width: inherit;
+            height: 30px;
+            line-height: 30px;
+        }
+        #user {
+            width: 281px;
+            height: 40px;
+            font: 400 20px Arial;
+            margin-bottom: 30px;
+            background-color: #f5f5f5;
+            border: #787878 1px solid;
+        }
+        #user:focus{
+            outline: none;
+            border: #4082D8 2px solid;
+        }
+        #password {
+            width: 281px;
+            height: 40px;
+            font: 400 20px Arial;
+            margin-bottom: 30px;
+            background-color: #f5f5f5;
+            border: #787878 1px solid;
+        }
+        #password:focus{
+            outline: none;
+            border: #4082D8 2px solid;
+        }
+
+        .login_help{
+            width: 281px;
+            height: 40px;
+        }
+        .ss{
+            float: left;
+            font-size: 14px;
+            color: red;
+            text-decoration: none;
+        }
+        .fpsd{
+            float: right;
+            color: #787878;
+            font-size: 13px;
+            text-decoration: none;
+        }
+        .fpsd:hover{
+            color: #333;
+            text-decoration: underline;
+        }
+        #login_button {
+            position: relative;
+            left: 143px;
+            width: 142px;
+            height: 38px;
+            background-color: #5095DA;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+            border: 0;
+            outline: none;
+            border-radius: 2px;
+        }
+
+        #login_button:hover {
+            background-color: #4082D8;
+        }
+
+        .bottom{
+            width: 964px;
+            height: 100px;
+            background-color: #f5f5f5;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 70px;
+            color: #787878;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        s{
+            height: 70px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 70px;
+            color: #787878;
+            font-size: 14px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="top">
+    <div class="logo">
+        <img src="img/login_logo.png" alt="#">
+    </div>
+    <div>
+        <a href="https://mail.swpu.edu.cn/?q=help" class="help">帮助</a>
+    </div>
+</div>
+
+<div class="content">
+
+    <div class="form">
+        <form id='login_form' action="login" method="post">
+            <div class="title">
+            <p>账号登录</p>
+            </div>
+            <div class="login" id="login">
+
+                <div class="login_title" id="login_title">
+                    <p>用户登录</p>
+                </div>
+
+                <input type="text" name="txtName" placeholder="用户名" id="user">
+
+                <input type="password" name="txtPwd" placeholder="密码" id="password">
+
+                <div class="login_help">
+                    <p class="ss">学生选择@stu.swpu.edu.cn</p>
+                    <a href="https://mail.swpu.edu.cn/?q=resetpw" class="fpsd">忘记密码</a>
+                </div>
+                <input type="submit" value="登录" id="login_button" >
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="bottom">西南石油大学</div>
+<!--
+<script>
+    function funLogin() {
+        var uName = document.getElementById('user');
+        var pwd = document.getElementById('password');
+        var tip = document.getElementById('login_title');
+        if(uName.value.length==0||pwd.value.length==0)
+        {
+            tip.innerHTML = '请输入用户名或密码';
+            tip.style.width='260px';
+            tip.style.height='32px';
+            tip.style.backgroundColor='#cc3300';
+            tip.style.color='#red';
+            tip.style.textAlign='center';
+            tip.style.lineHeight='31px'
+            tip.style.marginLeft='10px';
+            tip.style.marginTop='10px';
+        }
+        else if (uName.value=='tom'&&pwd.value==123)
+        {
+            window.location='http://mail.swpu.edu.cn/';
+        }
+        else
+        {
+            tip.innerHTML = '输入的用户名或密码错误';
+            tip.style.width='260px';
+            tip.style.height='32px';
+            tip.style.backgroundColor='#cc3300';
+            tip.style.color='#red';
+            tip.style.textAlign='center';
+            tip.style.lineHeight='31px'
+            tip.style.marginLeft='10px';
+            tip.style.marginTop='10px';
+        }
+    }
+</script>-->
+</body>
+</html>
